@@ -12,3 +12,17 @@ const io = new IntersectionObserver(
   { threshold: 0.12 }
 );
 targets.forEach((t) => io.observe(t));
+
+// Close mobile nav after selecting a link
+const navToggle = document.querySelector("#nav-toggle");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+if (navToggle && navLinks.length) {
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (navToggle.checked) {
+        navToggle.checked = false;
+      }
+    });
+  });
+}
