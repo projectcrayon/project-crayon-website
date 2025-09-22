@@ -26,3 +26,74 @@ if (navToggle && navLinks.length) {
     });
   });
 }
+
+const introCrayon = document.querySelector(".intro__interactive");
+
+if (introCrayon) {
+  const animateCrayon = () => {
+    introCrayon.classList.remove("is-animating");
+    void introCrayon.offsetWidth; // restart animation
+    introCrayon.classList.add("is-animating");
+  };
+
+  introCrayon.addEventListener("click", animateCrayon);
+  introCrayon.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      animateCrayon();
+    }
+  });
+  introCrayon.addEventListener("animationend", () => {
+    introCrayon.classList.remove("is-animating");
+  });
+}
+
+const copyCtas = document.querySelectorAll(".cta[data-copy]");
+
+copyCtas.forEach((cta) => {
+  const button = cta.querySelector(".cta__copy");
+  const toast = cta.querySelector(".cta__toast");
+  const value = cta.getAttribute("data-copy");
+  let toastTimer;
+
+  if (!button || !toast || !value) return;
+
+  const showToast = (message) => {
+    toast.textContent = message;
+    cta.classList.add("cta--toast-active");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      cta.classList.remove("cta--toast-active");
+    }, 1800);
+  };
+
+  const fallbackCopy = () => {
+    const temp = document.createElement("textarea");
+    temp.value = value;
+    temp.setAttribute("readonly", "");
+    temp.style.position = "absolute";
+    temp.style.left = "-9999px";
+    document.body.appendChild(temp);
+    temp.select();
+    try {
+      document.execCommand("copy");
+      showToast("Copied!");
+    } catch (error) {
+      showToast("Press Ctrl+C to copy");
+    }
+    document.body.removeChild(temp);
+  };
+
+  button.addEventListener("click", async () => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try {
+        await navigator.clipboard.writeText(value);
+        showToast("Copied!");
+      } catch (error) {
+        fallbackCopy();
+      }
+    } else {
+      fallbackCopy();
+    }
+  });
+});

@@ -397,7 +397,9 @@ body {
   }
 }
 .cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   margin-top: 16px;
   padding: 12px 18px;
   border-radius: 999px;
@@ -405,11 +407,91 @@ body {
   background: linear-gradient(90deg, var(--orange), #ffbf5f);
   color: #222;
   box-shadow: 0 8px 18px rgba(255, 138, 61, 0.35);
+  position: relative;
 }
 .cta.muted {
   background: #fff;
   color: #111;
   border: 2px dashed #ffbf5f;
+  box-shadow: none;
+}
+.cta__email {
+  white-space: nowrap;
+  font-weight: 600;
+}
+.cta__copy {
+  border: none;
+  background: rgba(255, 191, 95, 0.2);
+  color: var(--orange);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.cta__copy:hover,
+.cta__copy:focus-visible {
+  background: var(--orange);
+  color: #fff;
+  transform: translateY(-2px);
+  outline: none;
+}
+.cta__toast {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  transform: translate(-50%, 8px);
+  background: rgba(15, 23, 42, 0.9);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
+}
+.cta--toast-active .cta__toast {
+  opacity: 1;
+  transform: translate(-50%, -2px);
+}
+.cta__toast::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(15, 23, 42, 0.9) transparent transparent transparent;
+}
+.cta.muted .cta__copy {
+  background: rgba(15, 23, 42, 0.08);
+  color: var(--blue);
+}
+.cta.muted .cta__copy:hover,
+.cta.muted .cta__copy:focus-visible {
+  background: var(--blue);
+  color: #fff;
+}
+.cta.muted .cta__toast {
+  background: var(--nav-bg);
+}
+.cta.muted .cta__toast::after {
+  border-color: var(--nav-bg) transparent transparent transparent;
+}
+@media (max-width: 560px) {
+  .cta {
+    flex-wrap: nowrap;
+    padding: 10px 14px;
+    gap: 10px;
+  }
+  .cta__email {
+    font-size: 0.95rem;
+  }
 }
 
 .tiles {
