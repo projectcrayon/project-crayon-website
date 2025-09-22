@@ -17,6 +17,7 @@ targets.forEach((t) => io.observe(t));
 const navToggle = document.querySelector("#nav-toggle");
 const navLinks = document.querySelectorAll(".nav-links a");
 const brandLink = document.querySelector(".brand");
+const header = document.querySelector(".site-header");
 
 if (navToggle && navLinks.length) {
   navLinks.forEach((link) => {
@@ -38,7 +39,20 @@ if (brandLink) {
   });
 }
 
+const syncHeaderState = () => {
+  if (!header) return;
+  if (window.scrollY > 24) {
+    header.classList.add("is-scrolled");
+  } else {
+    header.classList.remove("is-scrolled");
+  }
+};
+
+syncHeaderState();
+window.addEventListener("scroll", syncHeaderState);
+
 const introCrayon = document.querySelector(".intro__interactive");
+const catSticker = document.querySelector(".pp-illustration__img");
 
 if (introCrayon) {
   const animateCrayon = () => {
@@ -108,3 +122,30 @@ copyCtas.forEach((cta) => {
     }
   });
 });
+
+const platformChips = document.querySelectorAll(".card__platforms .chip");
+
+platformChips.forEach((chip) => {
+  chip.addEventListener("focusout", () => {
+    chip.blur();
+  });
+});
+
+if (catSticker) {
+  const animateCat = () => {
+    catSticker.classList.remove("is-purring");
+    void catSticker.offsetWidth;
+    catSticker.classList.add("is-purring");
+  };
+
+  catSticker.addEventListener("click", animateCat);
+  catSticker.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      animateCat();
+    }
+  });
+  catSticker.addEventListener("animationend", () => {
+    catSticker.classList.remove("is-purring");
+  });
+}

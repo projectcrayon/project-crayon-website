@@ -15,7 +15,20 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/galaxy.png" />
-    <link rel="icon" href="data:," />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -78,12 +91,19 @@
           <p class="sub">
             Using present-day solutions to reinvigorate old ideas that were
             already good enough. <span class="project-highlight">Project</span>
-            <span class="brand-accent">Crayon</span> can find a way to expose your
-            retro/indie games to new audiences.
+            <span class="brand-accent">Crayon</span> can find a way to expose
+            your retro/indie games to new audiences.
           </p>
         </div>
         <div class="intro__art">
-          <img src="assets/crayon.png" alt="Crayon" />
+          <img
+            src="assets/crayon.png"
+            alt="Crayon"
+            class="intro__interactive"
+            role="button"
+            tabindex="0"
+            aria-label="Animate the Project Crayon mascot"
+          />
         </div>
       </div>
     </section>
@@ -96,34 +116,62 @@
 
         <div class="cards">
           <article class="card">
-            <img
-              src="assets/arcana-mundi-square.png"
-              alt="Arcana Mundi game cover"
-              loading="lazy"
-            />
-            <h3>Arcana Mundi</h3>
-            <p>
-              Story-driven tactical RPG starring apprentice archivists who
-              restore forgotten spellcraft for modern platforms.
-            </p>
+            <div class="card__media">
+              <img
+                src="assets/arcana-mundi-square.png"
+                alt="Arcana Mundi game cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="card__body">
+              <div class="card__platforms">
+                <button class="chip" type="button" data-label="MegaDrive">
+                  <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
+                </button>
+                <button class="chip" type="button" data-label="Steam">
+                  <i class="fa-brands fa-steam" aria-hidden="true"></i>
+                </button>
+                <button class="chip" type="button" data-label="Itch.io">
+                  <i class="fa-brands fa-itch-io" aria-hidden="true"></i>
+                </button>
+              </div>
+              <h3>Arcana Mundi</h3>
+              <p>
+                Story-driven tactical RPG starring apprentice archivists who
+                restore forgotten spellcraft for modern platforms.
+              </p>
+            </div>
           </article>
           <article class="card">
-            <img
-              src="assets/mystic-seals-square.png"
-              alt="Mystic Seals game cover"
-              loading="lazy"
-            />
-            <h3>Mystic Seals</h3>
-            <p>
-              Cooperative puzzle adventure where relic hunters break cursed
-              bindings using rhythm-based inputs and light synthesis.
-            </p>
+            <div class="card__media">
+              <img
+                src="assets/mystic-seals-square.png"
+                alt="Mystic Seals game cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="card__body">
+              <div class="card__platforms">
+                <button class="chip" type="button" data-label="Steam">
+                  <i class="fa-brands fa-steam" aria-hidden="true"></i>
+                </button>
+                <button class="chip" type="button" data-label="Itch.io">
+                  <i class="fa-brands fa-itch-io" aria-hidden="true"></i>
+                </button>
+              </div>
+              <h3>Mystic Seals</h3>
+              <p>
+                Cooperative puzzle adventure where relic hunters break cursed
+                bindings using rhythm-based inputs and light synthesis.
+              </p>
+            </div>
           </article>
         </div>
 
         <p class="small center mt-16">
-          Both titles are in active development with console publishing support
-          from <span class="project-highlight">Project</span>
+          Both titles are developed by Kivutar and are in active development
+          with console publishing support from
+          <span class="project-highlight">Project</span>
           <span class="brand-accent">Crayon</span>.
         </p>
       </div>
@@ -139,9 +187,9 @@
             <h3 class="h3">Indie And Homebrew Porting Services</h3>
             <p>
               <span class="project-highlight">Project</span>
-              <span class="brand-accent">Crayon</span> can help you
-              transform homebrew cartridge and fantasy console games into
-              digital releases on PlayStation, Switch, XBOX, and Steam.
+              <span class="brand-accent">Crayon</span> can help you transform
+              homebrew cartridge and fantasy console games into digital releases
+              on PlayStation, Switch, XBOX, and Steam.
             </p>
             <div
               class="cta muted"
@@ -164,6 +212,10 @@
               src="assets/sticker_2.png"
               alt="Project Crayon porting and publishing sticker"
               loading="lazy"
+              class="pp-illustration__img"
+              role="button"
+              tabindex="0"
+              aria-label="Animate the Project Crayon cat"
             />
           </div>
         </div>
@@ -176,19 +228,28 @@
         <h2 class="h2 center">Technology</h2>
         <div class="tiles">
           <div class="tile">
-            <i class="fa-solid fa-magnifying-glass-chart tile-icon" aria-hidden="true"></i>
+            <i
+              class="fa-solid fa-magnifying-glass-chart tile-icon"
+              aria-hidden="true"
+            ></i>
             <h3>Reverse Engineering</h3>
             <p>Learning from the hard work of those who did it first.</p>
           </div>
           <div class="tile">
-            <i class="fa-solid fa-code-compare tile-icon" aria-hidden="true"></i>
+            <i
+              class="fa-solid fa-code-compare tile-icon"
+              aria-hidden="true"
+            ></i>
             <h3>Transpiling Solutions</h3>
             <p>
               Converting ancient machine languages into present day languages.
             </p>
           </div>
           <div class="tile">
-            <i class="fa-solid fa-diagram-project tile-icon" aria-hidden="true"></i>
+            <i
+              class="fa-solid fa-diagram-project tile-icon"
+              aria-hidden="true"
+            ></i>
             <h3>Referrals</h3>
             <p>
               Get along with everyone!
@@ -196,7 +257,10 @@
             </p>
           </div>
           <div class="tile">
-            <i class="fa-solid fa-chess-knight tile-icon" aria-hidden="true"></i>
+            <i
+              class="fa-solid fa-chess-knight tile-icon"
+              aria-hidden="true"
+            ></i>
             <h3>Technical Strategies</h3>
             <p>Laying forth the many paths to victory!</p>
           </div>
