@@ -17,7 +17,7 @@
   font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
   src: url("assets/fonts/SourceSans3-Regular.woff2") format("woff2");
 }
 
@@ -25,7 +25,7 @@
   font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 600;
-  font-display: swap;
+  font-display: optional;
   src: url("assets/fonts/SourceSans3-SemiBold.woff2") format("woff2");
 }
 
@@ -33,7 +33,7 @@
   font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 700;
-  font-display: swap;
+  font-display: optional;
   src: url("assets/fonts/SourceSans3-Bold.woff2") format("woff2");
 }
 
@@ -136,7 +136,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 56px;
+  height: 56px;
   position: relative;
 }
 .brand {
@@ -262,6 +262,12 @@ body {
 .intro {
   background: #fff;
   padding: 0 0 24px;
+}
+.intro .title-xl {
+  max-width: 22ch;
+}
+.intro .sub {
+  max-width: 72ch;
 }
 .intro__grid {
   display: grid;
