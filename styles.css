@@ -162,31 +162,19 @@ body {
   }
 }
 
-/* Hero: background only. Bottom has a fade to white to align with the PNG transparent lip */
+/* Hero: display the full galaxy image without cropping */
 .hero {
   position: relative;
-  min-height: 64vh;
-  background: url("assets/galaxy.png") center/cover fixed no-repeat;
 }
-.hero__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.14);
+.hero__image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
-/* extra fade so the lower transparent area blends on any viewport ratio */
-.hero__fade {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: min(18vh, 160px);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 90%);
-}
-
 /* Intro directly after hero */
 .intro {
   background: #fff;
-  padding: 28px 0 24px;
+  padding: 0 0 24px;
 }
 .intro__grid {
   display: grid;
