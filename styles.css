@@ -3,6 +3,10 @@
   --muted: #667085;
   --blue: #3371ff;
   --orange: #ff8a3d;
+  --cyan: #45d8ff;
+  --nav-bg: #0f172a;
+  --nav-text: #e2e8f0;
+  --nav-hover: rgba(148, 163, 184, 0.2);
   --alt: #f7fbff;
   --shadow: 0 10px 30px rgba(16, 19, 34, 0.15);
   --max: 1120px;
@@ -69,8 +73,10 @@ body {
   margin: 0 0 8px;
   letter-spacing: 0.5px;
 }
-.title-xl span,
-.brand span {
+.project-highlight {
+  color: var(--cyan);
+}
+.brand-accent {
   color: var(--orange);
 }
 .lead {
@@ -87,31 +93,45 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #fff;
-  box-shadow: 0 1px 0 rgba(16, 19, 34, 0.06);
+  background: var(--nav-bg);
+  color: var(--nav-text);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.4);
 }
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 56px;
+  position: relative;
 }
 .brand {
   font-weight: 800;
-  color: var(--blue);
+  color: var(--nav-text);
   letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
 }
 .nav-links {
   display: flex;
   gap: 20px;
+  align-items: center;
+  z-index: 9;
 }
 .nav-links a {
-  padding: 10px 6px;
+  padding: 10px 10px;
   border-radius: 10px;
+  color: var(--nav-text);
+  transition: background 0.2s ease, color 0.2s ease;
 }
-.nav-links a:hover {
-  background: #f2f4ff;
-  color: var(--blue);
+.nav-links a:hover,
+.nav-links a:focus {
+  background: var(--nav-hover);
+  color: var(--white);
+}
+.nav-links a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
 }
 .nav-toggle {
   display: none;
@@ -126,7 +146,7 @@ body {
   display: block;
   width: 26px;
   height: 2px;
-  background: #111;
+  background: var(--nav-text);
   position: relative;
   border-radius: 2px;
 }
@@ -149,13 +169,14 @@ body {
   .nav-links {
     position: absolute;
     inset: 56px 0 auto 0;
-    background: #fff;
-    border-bottom: 1px solid #eef;
+    background: var(--nav-bg);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.35);
     display: grid;
     gap: 8px;
     padding: 12px 16px;
     transform: translateY(-110%);
     transition: 0.2s;
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
   }
   .nav-toggle:checked ~ .nav-links {
     transform: translateY(0);
@@ -209,6 +230,17 @@ body {
 }
 .section.alt {
   background: var(--alt);
+}
+
+#games {
+  background: linear-gradient(180deg, #eef4ff 0%, #dbe8ff 100%);
+}
+#games .container {
+  color: #1f2937;
+}
+#games .card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.35);
 }
 
 .cards {
@@ -309,7 +341,7 @@ body {
 }
 
 .footer {
-  padding: 48px 0 64px;
+  padding: 24px 0 32px;
   background: #fff;
 }
 .footer .mark {
