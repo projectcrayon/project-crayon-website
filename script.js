@@ -1,3 +1,13 @@
+// Promote preloaded CSS to stylesheet without inline JS
+(() => {
+  const link = document.getElementById("preload-css");
+  if (!link) return;
+  // If the resource is already loaded, just flip rel
+  if (link.rel !== "stylesheet") link.rel = "stylesheet";
+  // Also handle the normal load path
+  link.addEventListener("load", () => (link.rel = "stylesheet"));
+})();
+
 // Fade-in on scroll
 const targets = document.querySelectorAll(".reveal");
 const io = new IntersectionObserver(
