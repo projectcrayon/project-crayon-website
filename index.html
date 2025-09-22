@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Crayon</title>
+    <meta
+      name="description"
+      content="Technology that benefits an unchanging world."
+    />
+    <meta property="og:title" content="Project Crayon" />
+    <meta
+      property="og:description"
+      content="Using present-day solutions to reinvigorate old ideas."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/galaxy.png" />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header / Nav -->
+    <header class="site-header">
+      <div class="container nav">
+        <a href="#home" class="brand">Project <span>Crayon</span></a>
+        <input
+          id="nav-toggle"
+          class="nav-toggle"
+          type="checkbox"
+          aria-label="Toggle navigation"
+        />
+        <label for="nav-toggle" class="burger" aria-hidden="true"
+          ><span></span
+        ></label>
+        <nav class="nav-links">
+          <a href="#games">Games</a>
+          <a href="#publishing">Publishing</a>
+          <a href="#technology">Technology</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero image only (parallax background, no text on top) -->
+    <section id="home" class="hero parallax" aria-label="Hero background">
+      <div class="hero__overlay"></div>
+      <!-- Bande de transition translucide pour fond blanc -->
+      <div class="hero__fade"></div>
+    </section>
+
+    <!-- Intro block under the banner -->
+    <section class="intro">
+      <div class="container intro__grid reveal">
+        <div class="intro__text">
+          <h1 class="title-xl">PROJECT <span>CRAYON</span></h1>
+          <p class="lead">Technology that Benefits<br />an Unchanging World</p>
+          <p class="sub">
+            Using present-day solutions to reinvigorate old ideas that were
+            already good enough. Project Crayon can find a way to expose your
+            retro/indie games to new audiences.
+          </p>
+        </div>
+        <div class="intro__art">
+          <img src="assets/crayon.png" alt="Crayon" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Games -->
+    <section id="games" class="section">
+      <div class="container reveal">
+        <h2 class="h2 center">Games</h2>
+        <p class="center h3">The Shizuka Franchise</p>
+
+        <div class="cards">
+          <article class="card"></article>
+          <article class="card"></article>
+          <article class="card"></article>
+        </div>
+
+        <p class="small center mt-16">
+          In Active Development by Kivutar.<br />Soon to be ported to home
+          console systems near you!
+        </p>
+        <div class="mascot"></div>
+      </div>
+    </section>
+
+    <!-- Porting & Publishing -->
+    <section id="publishing" class="section alt">
+      <div class="container reveal">
+        <h2 class="h2 center">Porting and Publishing</h2>
+
+        <div class="pp-grid">
+          <div>
+            <h3 class="h3">Indie And Homebrew Porting Services</h3>
+            <p>
+              Project Crayon can help you transform homebrew cartridge and
+              fantasy console games into digital releases on PlayStation,
+              Switch, XBOX, and Steam.
+            </p>
+            <div class="cta muted" aria-label="not a link">
+              justask@projectcrayon.dev
+            </div>
+          </div>
+          <div class="pp-illustration"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology -->
+    <section id="technology" class="section">
+      <div class="container reveal">
+        <h2 class="h2 center">Technology</h2>
+        <div class="tiles">
+          <div class="tile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 20h16M8 20V8l4-2 4 2v12"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+            <h3>Reverse Engineering</h3>
+            <p>Learning from the hard work of those who did it first.</p>
+          </div>
+          <div class="tile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 19l6-6M10 13l4 4M13 7l5 5M7 5h6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+            <h3>Transpiling Solutions</h3>
+            <p>
+              Converting ancient machine languages into present day languages.
+            </p>
+          </div>
+          <div class="tile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M7 12a3 3 0 016 0v1h3a2 2 0 012 2v3H6v-4a2 2 0 012-2h3v-1z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+            <h3>Referrals</h3>
+            <p>Get along with everyone!</p>
+          </div>
+          <div class="tile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M5 20V6l8-2v14M13 6l6-2v14"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+            <h3>Technical Strategies</h3>
+            <p>Laying forth the many paths to victory!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section alt">
+      <div class="container reveal center">
+        <h2 class="h2">Get In Touch</h2>
+        <p>Send us an email with your inquiry at</p>
+        <div class="cta muted" aria-label="not a link">
+          justask@projectcrayon.dev
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer / About -->
+    <footer id="about" class="footer">
+      <div class="container">
+        <div class="mark"></div>
+        <p class="tiny">Copyright © Project Crayon LLC 2024.</p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

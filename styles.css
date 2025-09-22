@@ -1,0 +1,344 @@
+:root {
+  --white: #ffffff;
+  --muted: #667085;
+  --blue: #3371ff;
+  --orange: #ff8a3d;
+  --alt: #f7fbff;
+  --shadow: 0 10px 30px rgba(16, 19, 34, 0.15);
+  --max: 1120px;
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input {
+  font: inherit;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color: #222;
+  background: #fff;
+  line-height: 1.55;
+}
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding: 0 16px;
+}
+.center {
+  text-align: center;
+}
+.mt-16 {
+  margin-top: 16px;
+}
+.small {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+.tiny {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.h2 {
+  font-size: 2rem;
+  margin: 0 0 12px;
+}
+.h3 {
+  font-size: 1.25rem;
+  margin: 0 0 8px;
+}
+.title-xl {
+  font-size: clamp(2.2rem, 4vw + 1rem, 4rem);
+  margin: 0 0 8px;
+  letter-spacing: 0.5px;
+}
+.title-xl span,
+.brand span {
+  color: var(--orange);
+}
+.lead {
+  font-weight: 800;
+  font-size: clamp(1.1rem, 1.2rem + 1vw, 1.8rem);
+  margin: 4px 0;
+}
+.sub {
+  max-width: 720px;
+  color: #374151;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(16, 19, 34, 0.06);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+}
+.brand {
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: 0.5px;
+}
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  padding: 10px 6px;
+  border-radius: 10px;
+}
+.nav-links a:hover {
+  background: #f2f4ff;
+  color: var(--blue);
+}
+.nav-toggle {
+  display: none;
+}
+.burger {
+  display: none;
+  cursor: pointer;
+}
+.burger span,
+.burger span:before,
+.burger span:after {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: #111;
+  position: relative;
+  border-radius: 2px;
+}
+.burger span:before,
+.burger span:after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.burger span:before {
+  top: -7px;
+}
+.burger span:after {
+  top: 7px;
+}
+@media (max-width: 840px) {
+  .burger {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    inset: 56px 0 auto 0;
+    background: #fff;
+    border-bottom: 1px solid #eef;
+    display: grid;
+    gap: 8px;
+    padding: 12px 16px;
+    transform: translateY(-110%);
+    transition: 0.2s;
+  }
+  .nav-toggle:checked ~ .nav-links {
+    transform: translateY(0);
+  }
+}
+
+/* Hero: background only. Bottom has a fade to white to align with the PNG transparent lip */
+.hero {
+  position: relative;
+  min-height: 64vh;
+  background: url("assets/galaxy.png") center/cover fixed no-repeat;
+}
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.14);
+}
+/* extra fade so the lower transparent area blends on any viewport ratio */
+.hero__fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: min(18vh, 160px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 90%);
+}
+
+/* Intro directly after hero */
+.intro {
+  background: #fff;
+  padding: 28px 0 24px;
+}
+.intro__grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+.intro__text {
+  padding-right: 8px;
+}
+.intro__art img {
+  width: min(40vw, 230px);
+  height: auto;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.25));
+  transform: rotate(18deg);
+}
+@media (max-width: 820px) {
+  .intro__grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .intro__art {
+    justify-self: end;
+  }
+  .intro__art img {
+    width: 160px;
+  }
+}
+
+.section {
+  padding: 64px 0;
+}
+.section.alt {
+  background: var(--alt);
+}
+
+.cards {
+  margin-top: 16px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.card {
+  aspect-ratio: 1/1;
+  border-radius: 16px;
+  background: #ddd;
+  box-shadow: var(--shadow);
+}
+.mascot {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  margin: 20px auto 0;
+  background: radial-gradient(circle at 40% 35%, #ffd2d2 0 40%, transparent 40%),
+    linear-gradient(#fce 0 0) center/60% 60% no-repeat, #fff;
+  border: 6px solid #d7e2ff;
+  box-shadow: var(--shadow);
+}
+@media (max-width: 880px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 540px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pp-grid {
+  display: grid;
+  gap: 20px;
+  align-items: center;
+  grid-template-columns: 1.2fr 0.8fr;
+}
+.pp-illustration {
+  height: 220px;
+  border-radius: 20px;
+  background: radial-gradient(120px 80px at 65% 40%, #ffe3b0, transparent 60%),
+    radial-gradient(120px 80px at 35% 60%, #d2e8ff, transparent 60%),
+    linear-gradient(135deg, #e9f0ff, #fff);
+  box-shadow: var(--shadow);
+}
+.cta {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--orange), #ffbf5f);
+  color: #222;
+  box-shadow: 0 8px 18px rgba(255, 138, 61, 0.35);
+}
+.cta.muted {
+  background: #fff;
+  color: #111;
+  border: 2px dashed #ffbf5f;
+}
+
+.tiles {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: stretch;
+}
+.tile {
+  background: #fff;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+.tile svg {
+  width: 36px;
+  height: 36px;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+@media (max-width: 1024px) {
+  .tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .tiles {
+    grid-template-columns: 1fr;
+  }
+}
+
+#contact .cta {
+  user-select: text;
+  cursor: text;
+}
+
+.footer {
+  padding: 48px 0 64px;
+  background: #fff;
+}
+.footer .mark {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 8px;
+  background: url("assets/crayon.png") center/contain no-repeat;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
