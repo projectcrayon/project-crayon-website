@@ -16,6 +16,7 @@ targets.forEach((t) => io.observe(t));
 // Close mobile nav after selecting a link
 const navToggle = document.querySelector("#nav-toggle");
 const navLinks = document.querySelectorAll(".nav-links a");
+const brandLink = document.querySelector(".brand");
 
 if (navToggle && navLinks.length) {
   navLinks.forEach((link) => {
@@ -24,6 +25,16 @@ if (navToggle && navLinks.length) {
         navToggle.checked = false;
       }
     });
+  });
+}
+
+if (brandLink) {
+  brandLink.addEventListener("click", (event) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (navToggle && navToggle.checked) {
+      navToggle.checked = false;
+    }
   });
 }
 
