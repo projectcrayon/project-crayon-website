@@ -61,6 +61,8 @@ const syncHeaderState = () => {
 syncHeaderState();
 window.addEventListener("scroll", syncHeaderState);
 
+const heroCrayon = document.querySelector(".hero__piece--crayonolith");
+const heroCrayonTrigger = document.querySelector(".hero__crayon-trigger");
 const introCrayon = document.querySelector(".intro__interactive");
 const catSticker = document.querySelector(".pp-illustration__img");
 
@@ -157,5 +159,37 @@ if (catSticker) {
   });
   catSticker.addEventListener("animationend", () => {
     catSticker.classList.remove("is-purring");
+  });
+}
+if (heroCrayon && heroCrayonTrigger) {
+  let isAnimatingCrayon = false;
+
+  const pressHeroCrayon = () => {
+    if (isAnimatingCrayon) return;
+    isAnimatingCrayon = true;
+
+    const computedTransform = window.getComputedStyle(heroCrayon).transform;
+    heroCrayon.style.setProperty(
+      "--hero-crayon-origin",
+      computedTransform === "none"
+        ? "translate3d(0, 0, 0)"
+        : computedTransform
+    );
+    heroCrayon.classList.add("is-pressed");
+  };
+
+  heroCrayon.addEventListener("animationend", (event) => {
+    if (event.animationName !== "hero-crayon-press") return;
+    heroCrayon.classList.remove("is-pressed");
+    heroCrayon.style.removeProperty("--hero-crayon-origin");
+    isAnimatingCrayon = false;
+  });
+
+  heroCrayonTrigger.addEventListener("click", pressHeroCrayon);
+  heroCrayonTrigger.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      pressHeroCrayon();
+    }
   });
 }

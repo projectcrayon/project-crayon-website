@@ -237,25 +237,202 @@ h1,
   }
 }
 
-/* Hero: display the full galaxy image without cropping */
+/* Hero: layered galaxy collage */
 .hero {
   position: relative;
-  min-height: min(80vh, 800px);
+  padding: 0 0 40px;
+  background: transparent;
+  overflow: hidden;
 }
-.hero__image {
-  display: block;
+.hero__scene {
+  position: relative;
   width: 100%;
-  height: auto;
-  aspect-ratio: 770/572;
+  margin: 0;
+  aspect-ratio: 4700/3000;
+  display: block;
+}
+.hero__piece {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  transform-origin: center;
+  will-change: transform;
+  z-index: 3;
+}
+.hero__piece--stroke {
+  z-index: 2;
+  animation: hero-stroke-wisp 18s ease-in-out infinite alternate;
+}
+.hero__piece--boy {
+  z-index: 6;
+  animation: hero-boy-bob 8s ease-in-out infinite alternate;
+}
+.hero__piece--arcade {
+  z-index: 5;
+  animation: hero-arcade-shift 12s ease-in-out infinite alternate;
+}
+.hero__piece--gameboy {
+  z-index: 7;
+  animation: hero-gameboy-vibrate 2s linear infinite;
+}
+.hero__piece--earth {
+  z-index: 1;
+  animation: none;
+}
+.hero__piece--crayonolith {
+  z-index: 4;
+  animation: hero-crayonolith-drift 16s ease-in-out infinite alternate;
+  pointer-events: none;
+  --hero-crayon-origin: translate3d(0, 0, 0);
+}
+.hero__piece--cubes {
+  z-index: 8;
+  animation: hero-cubes-sway 14s ease-in-out infinite;
+}
+.hero__crayon-trigger {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  clip-path: polygon(
+    42.6% 53.4%,
+    45.2% 55.4%,
+    47.3% 52.4%,
+    49.4% 47.8%,
+    51.5% 42.2%,
+    53.7% 36.0%,
+    55.8% 30.0%,
+    58.0% 13.6%,
+    58.0% 10.6%,
+    55.6% 10.0%,
+    53.4% 12.9%,
+    51.2% 16.4%,
+    49.0% 20.5%,
+    46.8% 29.3%,
+    44.6% 39.2%,
+    42.6% 52.0%
+  );
+  padding: 0;
+  touch-action: manipulation;
+}
+.hero__crayon-trigger:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+.hero__piece--crayonolith.is-pressed {
+  animation: hero-crayon-press 0.7s cubic-bezier(0.32, 0.72, 0.2, 1.02);
+  animation-fill-mode: forwards;
 }
 @media (max-width: 880px) {
   .hero {
-    min-height: auto;
-    padding: 0 0 16px;
+    padding: 0 0 40px;
+  }
+  .hero__scene {
+    width: 100%;
+  }
+}
+@keyframes hero-stroke-wisp {
+  0% {
+    transform: translate3d(-0.4%, 0.3%, 0) rotate(-0.4deg);
+  }
+  100% {
+    transform: translate3d(0.6%, -0.6%, 0) rotate(0.6deg);
+  }
+}
+@keyframes hero-boy-bob {
+  0% {
+    transform: translate3d(0.2%, 1.2%, 0) rotate(-0.6deg);
+  }
+  100% {
+    transform: translate3d(-0.4%, -3.4%, 0) rotate(1.3deg);
+  }
+}
+@keyframes hero-arcade-shift {
+  0% {
+    transform: translate3d(-0.8%, 1.4%, 0) rotate(-0.7deg);
+  }
+  100% {
+    transform: translate3d(0.8%, -2.6%, 0) rotate(0.6deg);
+  }
+}
+@keyframes hero-gameboy-vibrate {
+  0%,
+  55% {
+    transform: translate3d(0, 0, 0) rotate(-0.2deg);
+  }
+  62% {
+    transform: translate3d(-0.25%, 0.16%, 0) rotate(0.35deg);
+  }
+  68% {
+    transform: translate3d(0.2%, -0.18%, 0) rotate(-0.38deg);
+  }
+  74% {
+    transform: translate3d(-0.18%, 0.12%, 0) rotate(0.3deg);
+  }
+  80% {
+    transform: translate3d(0.16%, -0.14%, 0) rotate(-0.34deg);
+  }
+  86% {
+    transform: translate3d(-0.12%, 0.1%, 0) rotate(0.26deg);
+  }
+  92%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-0.2deg);
+  }
+}
+@keyframes hero-crayonolith-drift {
+  0% {
+    transform: translate3d(0, 0.4%, 0) rotate(-0.6deg);
+  }
+  100% {
+    transform: translate3d(-0.4%, -1.4%, 0) rotate(0.9deg);
+  }
+}
+@keyframes hero-cubes-sway {
+  0% {
+    transform: translate3d(-2.8%, 0.2%, 0) rotate(-0.6deg);
+  }
+  25% {
+    transform: translate3d(1.6%, -0.1%, 0) rotate(0.4deg);
+  }
+  50% {
+    transform: translate3d(2.4%, 0.3%, 0) rotate(0.7deg);
+  }
+  75% {
+    transform: translate3d(-1.8%, -0.2%, 0) rotate(-0.3deg);
+  }
+  100% {
+    transform: translate3d(-2.8%, 0.2%, 0) rotate(-0.6deg);
+  }
+}
+@keyframes hero-crayon-press {
+  0% {
+    transform: var(--hero-crayon-origin, translate3d(0, 0, 0));
+  }
+  24% {
+    transform: var(--hero-crayon-origin, translate3d(0, 0, 0))
+      translate3d(-0.4%, 0.5%, 0) rotate(-0.4deg) scale(0.99);
+  }
+  48% {
+    transform: var(--hero-crayon-origin, translate3d(0, 0, 0))
+      translate3d(-1.4%, 2.2%, 0) rotate(-2.2deg) scale(0.95);
+  }
+  70% {
+    transform: var(--hero-crayon-origin, translate3d(0, 0, 0))
+      translate3d(-0.5%, 0.3%, 0) rotate(-0.6deg) scale(0.99);
+  }
+  100% {
+    transform: var(--hero-crayon-origin, translate3d(0, 0, 0))
+      translate3d(-0.1%, -0.1%, 0) rotate(0.12deg) scale(1);
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero__image,
+  .hero__piece,
   .card__media img,
   .tile,
   .cta__copy,

@@ -85,7 +85,6 @@
       /* Hero section */
       .hero {
         position: relative;
-        min-height: min(80vh, 800px);
       }
       .hero__image {
         display: block;
@@ -135,38 +134,75 @@
     </header>
 
     <!-- Hero image -->
-    <section id="home" class="hero parallax" aria-label="Hero background">
-      <picture>
-        <source
-          type="image/avif"
-          srcset="
-            assets/images/galaxy-515.avif   515w,
-            assets/images/galaxy-770.avif   770w,
-            assets/images/galaxy-1030.avif 1030w,
-            assets/images/galaxy-1600.avif 1600w
-          "
-          sizes="100vw"
-        />
-        <source
-          type="image/webp"
-          srcset="
-            assets/images/galaxy-515.webp   515w,
-            assets/images/galaxy-770.webp   770w,
-            assets/images/galaxy-1030.webp 1030w,
-            assets/images/galaxy-1600.webp 1600w
-          "
-          sizes="100vw"
+    <section id="home" class="hero" aria-label="Hero background">
+      <div
+        class="hero__scene"
+        role="img"
+        aria-label="Collage of arcade heroes, consoles, and planets floating in a galaxy"
+      >
+        <img
+          class="hero__piece hero__piece--stroke"
+          src="assets/banner/stroke.png"
+          alt=""
+          width="4700"
+          height="3000"
+          decoding="async"
         />
         <img
-          class="hero__image"
-          src="assets/images/galaxy-770.webp"
-          alt="Galaxy illustration representing Project Crayon"
-          width="770"
-          height="572"
+          class="hero__piece hero__piece--boy"
+          src="assets/banner/boy.png"
+          alt=""
+          width="4700"
+          height="3000"
+          decoding="async"
+        />
+        <img
+          class="hero__piece hero__piece--arcade"
+          src="assets/banner/arcade.png"
+          alt=""
+          width="4700"
+          height="3000"
+          decoding="async"
+        />
+        <img
+          class="hero__piece hero__piece--gameboy"
+          src="assets/banner/gameboy.png"
+          alt=""
+          width="4700"
+          height="3000"
+          decoding="async"
+        />
+        <img
+          class="hero__piece hero__piece--earth"
+          src="assets/banner/earth.png"
+          alt=""
+          width="4700"
+          height="3000"
           decoding="async"
           fetchpriority="high"
         />
-      </picture>
+        <img
+          class="hero__piece hero__piece--crayonolith"
+          src="assets/banner/crayonolith.png"
+          alt=""
+          width="4700"
+          height="3000"
+          decoding="async"
+        />
+        <button
+          class="hero__crayon-trigger"
+          type="button"
+          aria-label="Press the crayon mascot"
+        ></button>
+        <img
+          class="hero__piece hero__piece--cubes"
+          src="assets/banner/cubes.png"
+          alt=""
+          width="4700"
+          height="3000"
+          decoding="async"
+        />
+      </div>
     </section>
 
     <!-- Intro block under the banner -->
